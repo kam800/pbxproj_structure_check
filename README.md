@@ -31,20 +31,19 @@ Examples
 	$ echo $?
 	0
 
-	$ ruby pbxproj_structure_check.rb /allignedProjectPath2/allignedProject2.xcodeproj/project.pbxproj
-	Object 'D497DE90182D2EFC00924692' named 'Supporting Files' at '/allignedProject2' has no physical path
+	$ ruby pbxproj_structure_check.rb /otherProject/otherProject.xcodeproj/project.pbxproj
+	Object 'D497DE90182D2EFC00924692' named 'Supporting Files' at '/otherProject' has no physical path
 	$ echo $?
 	1
 	# I don't care about this object, let's ignore it :P
-	$ ruby pbxproj_structure_check.rb /allignedProjectPath2/allignedProject.xcodeproj/project.pbxproj D497DE90182D2EFC00924692
+	$ ruby pbxproj_structure_check.rb /otherProject/otherProject.xcodeproj/project.pbxproj D497DE90182D2EFC00924692
 	$ echo $?
 	0
-	$ ruby pbxproj_structure_check.rb /misallignedProjectPath/allignedProject.xcodeproj/project.pbxproj
 
 Add to Xcode as Build Phase
 ---------------------------
 
-Let's integrate `pbxproj_structure_check.rb` with your project, so be a defender of your project's alignment :)
+Let's integrate `pbxproj_structure_check.rb` with your project, so it be a defender of your project's alignment :)
 
 First - copy `pbxproj_structure_check.rb` to your project root folder.
 
@@ -58,15 +57,17 @@ From menu bar choose **Editor**, **Add Build Phase** and **Add Run Script Build 
 
 ![readme_img6.png](readme_imgs/readme_img6.png)
 
-**Run Script** has been added, move it up, so it should be below **Target Dependencies**
-Type `pbxproj_structure_check.rb` invocation as script:
+**Run Script** has been added, move it up, so it be placed below **Target Dependencies**. Type `pbxproj_structure_check.rb` invocation as script:
 
 	ruby pbxproj_structure_check.rb ${PROJECT_NAME}.xcodeproj/project.pbxproj
 
-Then you can specify ignored ids at the end of above invocation (e.g. 'Frameworks', 'Products', etc.)	
+Then you can specify ignored ids at the end of above invocation (e.g. ids of 'Frameworks', 'Products', etc.)	
 
 ![readme_img7.png](readme_imgs/readme_img7.png)
 
 If script detects any misaligned object during build - it reports an error.
 
 ![readme_img7.png](readme_imgs/readme_img8.png)
+
+
+**I would appreciate any suggestions!**
