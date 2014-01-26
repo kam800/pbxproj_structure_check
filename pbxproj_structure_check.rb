@@ -34,7 +34,7 @@ class PbxStructure
     if object["path"].nil?
       abort "#{object_description} has no physical path"
     end
-    if (not object["name"].nil?) and (object["name"].eql?(object["path"]))
+    if (not object["name"].nil?) and (not object["name"].eql?(object["path"]))
       abort "#{object_description} has name '#{object["name"]}' different from its real path '#{object["path"]}'"
     end
   
