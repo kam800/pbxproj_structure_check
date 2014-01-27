@@ -1,5 +1,6 @@
 #
 #  pbxproj_structure_check.rb
+#  v.1.0.0
 #
 #  Copyright (c) 2014 Kamil Borzym
 #  Released under the MIT License

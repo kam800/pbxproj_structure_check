@@ -18,8 +18,26 @@ Using Finder you reveal horrible truth - *.pbxproj file and file system are misa
 
 ![readme_img3.png](readme_imgs/readme_img3.png)
 
-Usage
------
+Cocoa Pods
+----------
+
+pbxproj_structure_check can be integrated into your project using [CocoaPods](http://cocoapods.org). Add following entry to your Podfile:
+
+	pod 'pbxproj_structure_check', '~> 1.0.0'
+
+Then add a 'Run Script' build phase to your app target (see **Add to Xcode as Build Phase** for details). Type following as build phase script:
+
+	ruby Pods/pbxproj_structure_check/pbxproj_structure_check.rb ${PROJECT_NAME}.xcodeproj/project.pbxproj
+
+If you get an error from the script about some objects during build, you can ignore those errors by adding object ids joined by ':' at the end of script invocation.
+
+For example: When you get errors about objects D497DE90182D2EFC00924692 and A497DE90182D2EFC00924692 and you would like to ignore those errors, use following invocation:
+
+	ruby Pods/pbxproj_structure_check/pbxproj_structure_check.rb ${PROJECT_NAME}.xcodeproj/project.pbxproj D497DE90182D2EFC00924692:A497DE90182D2EFC00924692
+
+
+Manual usage
+------------
 
 	$ ruby pbxproj_structure_check.rb 
 	ruby pbxproj_structure_check.rb pbx_path [ignored_id:...]
@@ -68,6 +86,5 @@ Then you can specify ignored ids at the end of above invocation (e.g. ids of 'Fr
 If script detects any misaligned object during build - it reports an error.
 
 ![readme_img7.png](readme_imgs/readme_img8.png)
-
 
 **I would appreciate any suggestions!**
