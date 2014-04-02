@@ -1,11 +1,12 @@
 #
 #  pbxproj_structure_check.rb
-#  v.1.0.0
+#  v.1.0.1
 #
 #  Copyright (c) 2014 Kamil Borzym
 #  Released under the MIT License
 #
 
+require 'rubygems'
 require 'json'
 
 class PbxStructure
