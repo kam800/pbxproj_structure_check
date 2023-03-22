@@ -23,7 +23,7 @@ Cocoa Pods
 
 pbxproj_structure_check can be integrated into your project using [CocoaPods](http://cocoapods.org). Add following entry to your Podfile:
 
-	pod 'pbxproj_structure_check', '~> 1.0.1'
+	pod 'pbxproj_structure_check', '~> 1.0.2'
 
 Then add a 'Run Script' build phase to your app target (see **Add to Xcode as Build Phase** for details). Type following as build phase script:
 
